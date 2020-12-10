@@ -6,13 +6,19 @@
 
   <groupId>com.github.daihy8759</groupId>
   <artifactId>beetlsql-helper</artifactId>
+  <packaging>pom</packaging>
   <version>1.0.0</version>
+  <modules>
+    <module>beetlsql-spring</module>
+    <module>beetlsql-spring-test</module>
+  </modules>
+  <name>beetlsql-helper</name>
+  <description>beetlsql helper</description>
+  <url>https://github.com/daihy8759/beetlsql-helper.git</url>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
-    <beetlsql.version>3.1.1-RELEASE</beetlsql.version>
-    <hutool.version>5.5.2</hutool.version>
   </properties>
 
   <licenses>
@@ -32,24 +38,6 @@
     <developerConnection>scm:git:git@github.com:daihy8759/beetlsql-helper.git</developerConnection>
     <url>git@github.com:daihy8759/beetlsql-helper.git</url>
   </scm>
-
-  <dependencies>
-    <dependency>
-      <groupId>com.ibeetl</groupId>
-      <artifactId>sql-springboot-starter</artifactId>
-      <version>${beetlsql.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>cn.hutool</groupId>
-      <artifactId>hutool-core</artifactId>
-      <version>${hutool.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>transmittable-thread-local</artifactId>
-      <version>2.11.5</version>
-    </dependency>
-  </dependencies>
 
   <profiles>
     <profile>

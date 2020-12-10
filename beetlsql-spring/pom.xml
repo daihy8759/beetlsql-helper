@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>beetlsql-helper</artifactId>
+    <groupId>com.github.daihy8759</groupId>
+    <version>1.0.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>beetlsql-spring</artifactId>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <beetlsql.version>3.1.1-RELEASE</beetlsql.version>
+    <hutool.version>5.5.2</hutool.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.ibeetl</groupId>
+      <artifactId>sql-springboot-starter</artifactId>
+      <version>${beetlsql.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-core</artifactId>
+      <version>${hutool.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>
