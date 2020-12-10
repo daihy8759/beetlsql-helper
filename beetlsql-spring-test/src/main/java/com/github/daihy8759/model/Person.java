@@ -11,10 +11,12 @@ public class Person extends ModelBase<Long> {
 
   private String address;
 
+  @Override
   public Long getId() {
     return id;
   }
 
+  @Override
   public void setId(Long id) {
     this.id = id;
   }
