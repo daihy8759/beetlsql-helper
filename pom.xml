@@ -7,7 +7,7 @@
   <groupId>com.github.daihy8759</groupId>
   <artifactId>beetlsql-helper</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <modules>
     <module>beetlsql-spring</module>
     <module>beetlsql-spring-test</module>
