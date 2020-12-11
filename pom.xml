@@ -5,18 +5,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.daihy8759</groupId>
-  <artifactId>beetlsql-helper</artifactId>
+  <artifactId>beetlsql-spring-parent</artifactId>
   <packaging>pom</packaging>
   <version>1.0.1-SNAPSHOT</version>
   <modules>
     <module>beetlsql-spring</module>
-    <module>beetlsql-spring-test</module>
+<!--    <module>beetlsql-spring-test</module>-->
   </modules>
   <name>beetlsql-helper</name>
   <description>beetlsql helper</description>
   <url>https://github.com/daihy8759/beetlsql-helper.git</url>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
   </properties>
@@ -90,6 +91,12 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
+                <configuration>
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
               </execution>
             </executions>
           </plugin>
