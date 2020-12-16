@@ -10,6 +10,8 @@ import org.beetl.sql.annotation.entity.Version;
  */
 public class ModelBase<T> implements java.io.Serializable {
 
+  private static final long serialVersionUID = -4443851546183503891L;
+
   private T id;
 
   @UpdateIgnore

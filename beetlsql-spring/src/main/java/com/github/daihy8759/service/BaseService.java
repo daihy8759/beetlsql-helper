@@ -47,9 +47,7 @@ public class BaseService<T extends ModelBase<I>, I> {
   }
 
   protected void prePersist(T clazz, CurrentUser<I> currentUser) {
-    if (clazz.getCreateUser() == null) {
-      clazz.setCreateUser(currentUser.getUserId());
-    }
+    clazz.setCreateUser(currentUser.getUserId());
     clazz.setCreateTime(new Date());
   }
 
