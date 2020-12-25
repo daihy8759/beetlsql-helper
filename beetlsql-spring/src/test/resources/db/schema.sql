@@ -8,6 +8,7 @@ CREATE TABLE `person`
     `address` varchar(255) DEFAULT NULL,
     `create_user` int(11) DEFAULT NOT NULL,
     `create_time` datetime DEFAULT NOT NULL,
+    `record_version` int(11) DEFAULT 0 NOT NULL,
     PRIMARY KEY (`id`)
 );
 

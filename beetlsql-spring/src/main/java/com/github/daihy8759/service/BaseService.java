@@ -1,5 +1,6 @@
 package com.github.daihy8759.service;
 
+import cn.hutool.core.lang.Assert;
 import com.github.daihy8759.exception.PrimaryKeyNotFoundException;
 import com.github.daihy8759.model.CurrentUser;
 import com.github.daihy8759.model.ModelBase;
@@ -86,11 +87,12 @@ public class BaseService<T extends ModelBase<I>, I> {
   }
 
   public void deleteById(I id) {
+    Assert.notNull(id, "主键不能为空!");
     baseMapper.deleteById(id);
   }
 
   public void delete(I[] ids) {
-    if (ids.length == 0) {
+    if (ids == null || ids.length == 0) {
       return;
     }
     baseMapper.createLambdaQuery().andIn(getPrimaryKey(), Arrays.asList(ids)).delete();

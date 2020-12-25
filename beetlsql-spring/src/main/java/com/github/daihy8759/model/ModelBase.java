@@ -26,7 +26,7 @@ public class ModelBase<T> implements java.io.Serializable {
   @InsertIgnore
   private Date updateTime;
 
-  @Version
+  @Version(0)
   private Long recordVersion;
 
   public T getId() {

@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.github.daihy8759</groupId>
     <artifactId>beetlsql-spring-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -12,7 +12,7 @@
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
-    <beetlsql.version>3.1.3-RELEASE</beetlsql.version>
+    <beetlsql.version>3.2.1-RELEASE</beetlsql.version>
     <hutool.version>5.5.2</hutool.version>
   </properties>
 
@@ -26,6 +26,25 @@
       <groupId>cn.hutool</groupId>
       <artifactId>hutool-core</artifactId>
       <version>${hutool.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+      <version>2.4.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.200</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>2.4.0</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
