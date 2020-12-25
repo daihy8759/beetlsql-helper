@@ -40,7 +40,10 @@ public class BaseServiceTest {
 
     assertNotNull(person.getId());
 
-    assertNotNull(personService.unique(person.getId()));
+    person = personService.unique(person.getId());
+    assertNotNull(person);
+
+    personService.update(person, currentUser);
 
     personService.delete(new Long[]{person.getId()});
 
