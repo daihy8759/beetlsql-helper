@@ -81,21 +81,21 @@ public class BaseService<T extends ModelBase<I>, I> {
     baseMapper.insertBatch(list);
   }
 
-  public void update(T model, CurrentUser<I> currentUser) {
+  public int update(T model, CurrentUser<I> currentUser) {
     preUpdate(model, currentUser);
-    baseMapper.updateById(model);
+    return baseMapper.updateById(model);
   }
 
-  public void deleteById(I id) {
+  public int deleteById(I id) {
     Assert.notNull(id, "主键不能为空!");
-    baseMapper.deleteById(id);
+    return baseMapper.deleteById(id);
   }
 
-  public void delete(I[] ids) {
+  public int delete(I[] ids) {
     if (ids == null || ids.length == 0) {
-      return;
+      return 0;
     }
-    baseMapper.createLambdaQuery().andIn(getPrimaryKey(), Arrays.asList(ids)).delete();
+    return baseMapper.createLambdaQuery().andIn(getPrimaryKey(), Arrays.asList(ids)).delete();
   }
 
 }
