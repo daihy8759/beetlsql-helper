@@ -1,5 +1,5 @@
 -- ----------------------------
--- Table structure for department
+-- Table structure for person
 -- ----------------------------
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person`

@@ -38,6 +38,7 @@ public class BaseServiceTest {
     currentUser.setUserId(1L);
     personService.insert(person, currentUser);
 
+    System.out.println(person.getAddress());
     assertNotNull(person.getId());
 
     person = personService.unique(person.getId());
@@ -45,7 +46,7 @@ public class BaseServiceTest {
 
     personService.update(person, currentUser);
 
-    personService.delete(new Long[]{person.getId()});
+    personService.delete(new Long[] {person.getId()});
 
     assertEquals(null, personService.single(person.getId()));
   }
