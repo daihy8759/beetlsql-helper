@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.github.daihy8759</groupId>
     <artifactId>beetlsql-spring-parent</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
@@ -12,7 +12,7 @@
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
-    <beetlsql.version>3.2.1-RELEASE</beetlsql.version>
+    <beetlsql.version>3.2.3-RELEASE</beetlsql.version>
     <hutool.version>5.5.2</hutool.version>
   </properties>
 

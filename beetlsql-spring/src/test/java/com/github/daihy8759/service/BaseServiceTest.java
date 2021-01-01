@@ -3,8 +3,11 @@ package com.github.daihy8759.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import com.github.daihy8759.mapper.PersonMapper;
 import com.github.daihy8759.model.CurrentUser;
 import com.github.daihy8759.model.Person;
+import com.github.daihy8759.query.PageRequest;
+
 import org.beetl.sql.core.SQLManager;
 import org.beetl.sql.ext.DBInitHelper;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,25 +33,47 @@ public class BaseServiceTest {
     DBInitHelper.executeSqlScript(sqlManager, "db/schema.sql");
   }
 
-  @Test
-  public void testInsert() {
+  private Person insertPerson() {
     Person person = new Person();
     person.setAddress("test");
-    CurrentUser currentUser = new CurrentUser();
+    CurrentUser<Long> currentUser = new CurrentUser<Long>();
     currentUser.setUserId(1L);
     personService.insert(person, currentUser);
+    return person;
+  }
 
-    System.out.println(person.getAddress());
-    assertNotNull(person.getId());
-
+  @Test
+  public void testInsert() {
+    Person person = insertPerson();
     person = personService.unique(person.getId());
     assertNotNull(person);
 
-    personService.update(person, currentUser);
-
-    personService.delete(new Long[] {person.getId()});
-
+    personService.delete(new Long[] { person.getId() });
     assertEquals(null, personService.single(person.getId()));
+  }
+
+  @Test
+  public void testUpdate() {
+    Person person = insertPerson();
+    person.setAddress("new address");
+    CurrentUser<Long> currentUser = new CurrentUser<Long>();
+    currentUser.setUserId(1L);
+    person = personService.unique(person.getId());
+    int affectCount = personService.update(person, currentUser);
+    assertEquals(1, affectCount);
+  }
+
+  @Test
+  public void testDelete() {
+    Person person = insertPerson();
+    int affectCount = personService.deleteById(person.getId());
+    assertEquals(1, affectCount);
+  }
+
+  @Test
+  public void testPageQuery() {
+    PageRequest pageRequest = PageRequest.create(1, 10);
+    sqlManager.getMapper(PersonMapper.class).selectPage(pageRequest);
   }
 
 }

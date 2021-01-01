@@ -9,28 +9,23 @@
  *
  * @LastEditors: daihy
  *
- * @LastEditTime: 2020-12-30 14:36:26
+ * @LastEditTime: 2021-01-01 16:06:24
  */
 package com.github.daihy8759.mapper;
 
 import java.util.Map;
+import com.github.daihy8759.mapper.internal.GetNameSpaceAMI;
 import com.github.daihy8759.query.PageRequest;
 import org.beetl.sql.core.SqlId;
 import org.beetl.sql.core.page.PageResult;
-import org.beetl.sql.mapper.annotation.SqlResource;
+import org.beetl.sql.mapper.annotation.AutoMapper;
 
 public interface BaseMapper<T> extends org.beetl.sql.mapper.BaseMapper<T> {
 
-    @SuppressWarnings(value = {"unchecked"})
-    default String getNamespace() {
-        SqlResource sqlResource = (SqlResource) getTargetEntity().getAnnotation(SqlResource.class);
-        if (sqlResource != null) {
-            return sqlResource.value();
-        }
-        return "";
-    }
+    @AutoMapper(GetNameSpaceAMI.class)
+    String getNamespace();
 
-    @SuppressWarnings(value = {"unchecked", "rawtypes"})
+    @SuppressWarnings(value = { "unchecked", "rawtypes" })
     default PageResult<T> selectPage(PageRequest pageRequest) {
         return getSQLManager().pageQuery(SqlId.of(getNamespace(), "selectPage"), getTargetEntity(),
                 pageRequest.getQueryParas(), pageRequest);
@@ -38,8 +33,8 @@ public interface BaseMapper<T> extends org.beetl.sql.mapper.BaseMapper<T> {
 
     @SuppressWarnings("rawtypes")
     default PageResult<Map> selectPageMap(PageRequest pageRequest) {
-        return getSQLManager().pageQuery(SqlId.of(getNamespace(), "selectPage"), Map.class,
-                pageRequest.getQueryParas(), pageRequest);
+        return getSQLManager().pageQuery(SqlId.of(getNamespace(), "selectPage"), Map.class, pageRequest.getQueryParas(),
+                pageRequest);
     }
 
 }

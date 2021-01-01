@@ -9,7 +9,7 @@
  *
  * @LastEditors: daihy
  *
- * @LastEditTime: 2020-12-30 14:20:29
+ * @LastEditTime: 2020-12-30 15:02:29
  */
 package com.github.daihy8759.query;
 
@@ -31,5 +31,13 @@ public class PageRequest<T> extends DefaultPageRequest<T> {
         this.queryParas = queryParas;
     }
 
+    @SuppressWarnings("rawtypes")
+    public static PageRequest create(long page, int pageSize) {
+        PageRequest request = new PageRequest();
+        request.setPageNumber(page);
+        request.setPageSize(pageSize);
+        request.setTotalRequired(true);
+        return request;
+    }
 
 }
