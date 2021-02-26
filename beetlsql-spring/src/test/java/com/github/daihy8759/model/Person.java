@@ -6,6 +6,8 @@ import org.beetl.sql.annotation.entity.Table;
 @Table(name = "person")
 public class Person extends ModelBase<Long> {
 
+  private static final long serialVersionUID = 1L;
+
   @AutoID
   private Long id;
 

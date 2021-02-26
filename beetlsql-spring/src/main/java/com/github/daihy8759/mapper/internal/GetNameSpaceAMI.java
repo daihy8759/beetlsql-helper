@@ -14,7 +14,6 @@
 package com.github.daihy8759.mapper.internal;
 
 import java.lang.reflect.Method;
-
 import org.beetl.sql.clazz.kit.BeetlSQLException;
 import org.beetl.sql.clazz.kit.StringKit;
 import org.beetl.sql.core.SQLManager;
@@ -25,13 +24,13 @@ import org.beetl.sql.mapper.annotation.SqlResource;
 public class GetNameSpaceAMI extends MapperInvoke {
 
     @Override
-    public Object call(SQLManager sm, Class entityClass, Method m, Object[] args) {
-        Class mapperClass = m.getDeclaringClass();
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public Object call(SQLManager sm, Class mapperInterface, Class entityClass, Method m, Object[] args) {
         SqlResource methodSqlResoruce = m.getAnnotation(SqlResource.class);
         if (methodSqlResoruce != null) {
             return methodSqlResoruce.value();
         }
-        SqlResource sqlResource = (SqlResource) mapperClass.getAnnotation(SqlResource.class);
+        SqlResource sqlResource = (SqlResource) mapperInterface.getAnnotation(SqlResource.class);
         if (sqlResource != null) {
             return sqlResource.value();
         }

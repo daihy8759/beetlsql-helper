@@ -9,13 +9,13 @@
  *
  * @LastEditors: daihy
  *
- * @LastEditTime: 2021-01-01 16:06:24
+ * @LastEditTime: 2021-01-07 09:32:54
  */
 package com.github.daihy8759.mapper;
 
-import java.util.Map;
 import com.github.daihy8759.mapper.internal.GetNameSpaceAMI;
 import com.github.daihy8759.query.PageRequest;
+import java.util.Map;
 import org.beetl.sql.core.SqlId;
 import org.beetl.sql.core.page.PageResult;
 import org.beetl.sql.mapper.annotation.AutoMapper;

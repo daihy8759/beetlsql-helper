@@ -7,7 +7,6 @@ import com.github.daihy8759.mapper.PersonMapper;
 import com.github.daihy8759.model.CurrentUser;
 import com.github.daihy8759.model.Person;
 import com.github.daihy8759.query.PageRequest;
-
 import org.beetl.sql.core.SQLManager;
 import org.beetl.sql.ext.DBInitHelper;
 import org.junit.jupiter.api.BeforeAll;
@@ -72,6 +71,8 @@ public class BaseServiceTest {
 
   @Test
   public void testPageQuery() {
+    Person person = insertPerson();
+    person = personService.unique(person.getId());
     PageRequest pageRequest = PageRequest.create(1, 10);
     sqlManager.getMapper(PersonMapper.class).selectPage(pageRequest);
   }

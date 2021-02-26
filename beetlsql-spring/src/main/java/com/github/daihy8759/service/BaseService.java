@@ -25,6 +25,7 @@ public class BaseService<T extends ModelBase<I>, I> {
   }
 
   @PostConstruct
+  @SuppressWarnings({ "unchecked" })
   private void init() {
     Object obj = this.getClass().getGenericSuperclass();
     if (obj instanceof ParameterizedType) {
