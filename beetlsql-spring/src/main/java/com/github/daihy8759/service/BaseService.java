@@ -8,7 +8,6 @@ import java.lang.reflect.ParameterizedType;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import org.beetl.sql.core.SQLManager;
 import org.beetl.sql.mapper.BaseMapper;
 
@@ -22,11 +21,6 @@ public class BaseService<T extends ModelBase<I>, I> {
 
   protected BaseService(BaseMapper<T> baseMapper) {
     this.baseMapper = baseMapper;
-  }
-
-  @PostConstruct
-  @SuppressWarnings({ "unchecked" })
-  private void init() {
     Object obj = this.getClass().getGenericSuperclass();
     if (obj instanceof ParameterizedType) {
       ParameterizedType type = (ParameterizedType) obj;
